@@ -6,11 +6,13 @@ using Microsoft.Dynamics365.UIAutomation.Api.UCI;
 using Microsoft.Dynamics365.UIAutomation.Browser;
 using System;
 using System.Security;
+using OpenQA.Selenium;
+using Microsoft.Dynamics365.UIAutomation.Browser.Logs;
 
 namespace Microsoft.Dynamics365.UIAutomation.Sample.UCI
 {
     [TestClass]
-    public class CreateAccountUCI
+    public class EasyReproTest2
     {
 
         private readonly SecureString _username = System.Configuration.ConfigurationManager.AppSettings["OnlineUsername"].ToSecureString();
@@ -32,10 +34,13 @@ namespace Microsoft.Dynamics365.UIAutomation.Sample.UCI
 
                 xrmApp.CommandBar.ClickCommand("New");
 
-                xrmApp.Entity.SetValue("name", TestSettings.GetRandomString(5,15));
+                var accountName = "";
 
-                xrmApp.Entity.Save();
-                
+                xrmApp.Entity.SetValue("name", accountName);
+
+                xrmApp.Entity.Save();           
+
+                xrmApp.ThinkTime(4000);
             }
             
         }

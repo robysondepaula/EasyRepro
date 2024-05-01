@@ -52,6 +52,7 @@
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -116,6 +117,9 @@
     <Compile Include="ConsoleTraceListener.cs" />
     <Compile Include="UCI\Controls\Grid.cs" />
     <Compile Include="UCI\Controls\PowerApp.cs" />
+    <Compile Include="UCI\Create\EasyReproTest1DataTest.cs" />
+    <Compile Include="UCI\Create\EasyReproTest2.cs" />
+    <Compile Include="UCI\Create\EasyReproTest1.cs" />
     <Compile Include="UCI\Create\CreateAccount.cs" />
     <Compile Include="UCI\Create\CreateCase.cs" />
     <Compile Include="UCI\Create\CreateContact.cs" />
@@ -149,6 +153,7 @@
     <Compile Include="UCI\Navigation\OpenNavigation.cs" />
     <Compile Include="UCI\Navigation\PortalAdmin.cs" />
     <Compile Include="UCI\QuickCreate\QuickCreate.cs" />
+    <Compile Include="UCI\Validate\EasyReproValidate1.cs" />
     <Compile Include="UCI\Validate\CheckFieldRequired.cs" />
     <Compile Include="UCI\Read\HighlightAccount.cs" />
     <Compile Include="UCI\Read\OpenAccount.cs" />
@@ -270,7 +275,9 @@
     <None Include="UCI\UnifiedInterface.orderedtest" />
     <None Include="Web\WebClient.orderedtest" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="UCI\Create\testdata.xml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Dynamics365.UIAutomation.Api.UCI\Microsoft.Dynamics365.UIAutomation.Api.UCI.csproj">
       <Project>{afcb5bb5-4512-4019-a911-5d56cff4f3d0}</Project>
@@ -303,16 +310,7 @@
       </ItemGroup>
     </When>
   </Choose>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.113.0.5672.6300\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.113.0.5672.6300\build\Selenium.WebDriver.ChromeDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.9.1\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.9.1\build\Selenium.WebDriver.targets'))" />
-  </Target>
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.113.0.5672.6300\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.113.0.5672.6300\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.4.9.1\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.9.1\build\Selenium.WebDriver.targets')" />

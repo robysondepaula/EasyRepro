@@ -2682,6 +2682,9 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         /// Saves the entity
         /// </summary>
         /// <param name="thinkTime"></param>
+        /// 
+       
+
         internal BrowserCommandResult<bool> Save(int thinkTime = Constants.DefaultThinkTime)
         {
             ThinkTime(thinkTime);
@@ -2690,6 +2693,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             {
                 Actions action = new Actions(driver);
                 action.KeyDown(Keys.Control).SendKeys("S").Perform();
+                action.KeyUp(Keys.Control).Perform(); // Release the Ctrl key
 
                 return true;
             });

@@ -17,7 +17,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Browser
         public static IWebDriver CreateWebDriver(BrowserOptions options)
         {
             IWebDriver driver;
-           
+
             switch (options.BrowserType)
             {
                 case BrowserType.Chrome:
